@@ -22,11 +22,6 @@ var ArgumentNullException = (function (_super) {
         _this = _super.call(this, message, innerException) || this;
         return _this;
     }
-    Object.defineProperty(ArgumentNullException.prototype, "exceptionType", {
-        get: function () { return "ArgumentNullException"; },
-        enumerable: true,
-        configurable: true
-    });
     return ArgumentNullException;
 }(exception_1.default));
 exports.default = ArgumentNullException;

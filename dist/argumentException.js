@@ -24,11 +24,6 @@ var ArgumentException = (function (_super) {
         _this = _super.call(this, message, innerException) || this;
         return _this;
     }
-    Object.defineProperty(ArgumentException.prototype, "exceptionType", {
-        get: function () { return "ArgumentException"; },
-        enumerable: true,
-        configurable: true
-    });
     return ArgumentException;
 }(exception_1.default));
 exports.default = ArgumentException;

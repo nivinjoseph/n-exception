@@ -3,9 +3,6 @@ import "n-ext";
 
 class ArgumentException extends Exception
 {
-    public get exceptionType(): string { return "ArgumentException"; }
-
-    
     public constructor(argName: string, reason: string);
     public constructor(argName: string, reason: string, innerException: Exception);
     public constructor(argName: string, reason: string, innerException?: Exception)

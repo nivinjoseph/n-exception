@@ -3,9 +3,6 @@ import "n-ext";
     
 class InvalidArgumentException extends Exception
 {
-    public get exceptionType(): string { return "InvalidArgumentException"; }
-
-    
     public constructor(argName: string);
     public constructor(argName: string, innerException: Exception);
     public constructor(argName: string, innerException?: Exception)
