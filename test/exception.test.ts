@@ -16,8 +16,12 @@ suite("exceptions", () =>
         test("should have the right exceptionType", () =>
         {
             let exp = new ApplicationException("test exception");
-            let exceptionType = exp.exceptionType;
             assert.strictEqual(exp.exceptionType, "ApplicationException");
+        });
+        
+        test("", () =>
+        {
+            
         });
     });
 });
