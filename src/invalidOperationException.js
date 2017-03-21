@@ -22,11 +22,6 @@ var InvalidOperationException = (function (_super) {
         _this = _super.call(this, message, innerException) || this;
         return _this;
     }
-    Object.defineProperty(InvalidOperationException.prototype, "exceptionType", {
-        get: function () { return "InvalidOperationException"; },
-        enumerable: true,
-        configurable: true
-    });
     return InvalidOperationException;
 }(exception_1.default));
 exports.default = InvalidOperationException;

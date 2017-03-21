@@ -3,9 +3,6 @@ import "n-ext";
 
 class InvalidOperationException extends Exception
 {
-    public get exceptionType(): string { return "InvalidOperationException"; }
-
-    
     public constructor(operation: string);
     public constructor(operation: string, innerException: Exception);
     public constructor(operation: string, innerException?: Exception)
