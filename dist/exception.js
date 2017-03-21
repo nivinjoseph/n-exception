@@ -33,3 +33,4 @@ var Exception = (function () {
     return Exception;
 }());
 exports.default = Exception;
+//# sourceMappingURL=exception.js.map

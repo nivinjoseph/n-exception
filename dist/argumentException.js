@@ -27,3 +27,4 @@ var ArgumentException = (function (_super) {
     return ArgumentException;
 }(exception_1.default));
 exports.default = ArgumentException;
+//# sourceMappingURL=argumentException.js.map

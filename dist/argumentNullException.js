@@ -25,3 +25,4 @@ var ArgumentNullException = (function (_super) {
     return ArgumentNullException;
 }(exception_1.default));
 exports.default = ArgumentNullException;
+//# sourceMappingURL=argumentNullException.js.map

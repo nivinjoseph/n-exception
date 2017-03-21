@@ -25,3 +25,4 @@ var InvalidOperationException = (function (_super) {
     return InvalidOperationException;
 }(exception_1.default));
 exports.default = InvalidOperationException;
+//# sourceMappingURL=invalidOperationException.js.map
