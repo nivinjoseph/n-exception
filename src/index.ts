@@ -1,9 +1,9 @@
 import Exception from "./exception";
-import ApplicationException from "./applicationException";
-import ArgumentException from "./argumentException";
-import ArgumentNullException from "./argumentNullException";
-import InvalidArgumentException from "./invalidArgumentException";
-import InvalidOperationException from "./invalidOperationException";
+import ApplicationException from "./application-exception";
+import ArgumentException from "./argument-exception";
+import ArgumentNullException from "./argument-null-exception";
+import InvalidArgumentException from "./invalid-argument-exception";
+import InvalidOperationException from "./invalid-operation-exception";
 
 export
 {
@@ -14,10 +14,3 @@ export
     InvalidArgumentException, 
     InvalidOperationException
 }
-
-// export * from "./exception";
-// export * from "./applicationException";
-// export * from "./argumentException";
-// export * from "./argumentNullException";
-// export * from "./invalidArgumentException";
-// export * from "./invalidOperationException";
