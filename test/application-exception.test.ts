@@ -46,12 +46,51 @@ suite("ApplicationException", () =>
             assert.strictEqual(exp.message, "You have an error");
         });
     });
+    
+    suite("toString property", () =>
+    {
+        test("should be formated when exceptionType is correct and message argument is provided", () =>
+        {
+            let exp = new ApplicationException("You have an error");
+            
+            assert.strictEqual(exp.toString, "ApplicationException: You have an error");
+        });
+        
+        test("message should be formated and exceptionType should be default value when message is provided and exceptionType is incorrect", () =>
+        {
+            let exp = new ApplicationException("You have an error");
+            
+            assert.strictEqual(exp.toString, "{0}: You have an error");
+        });
+        
+        test("exceptionType should be formated and message should be default value when exceptionType is correct and message is null", () =>
+        {
+            let exp = new ApplicationException(null);
+            
+            assert.strictEqual(exp.toString, "ApplicationException: {1}");
+        });
+        
+        test("exceptionType should be formated and message should be default value when exceptionType is correct and message is a space character", () =>
+        {
+            let exp = new ApplicationException(" ");
+            
+            assert.strictEqual(exp.toString, "ApplicationException: {1}");
+        });
+        
+        test("exceptionType should be formated and message should be default value when exceptionType is correct and message is an empty string", () =>
+        {
+            let exp = new ApplicationException("");
+            
+            assert.strictEqual(exp.toString, "ApplicationException: {1}");
+        });
+    });
 
     suite("innerException property", () =>
     {
         test("should be null when no innerException arg is provided", () =>
         {
             let exp = new ApplicationException("404");
+            
             assert.strictEqual(exp.innerException, null);
         });
 
@@ -59,6 +98,7 @@ suite("ApplicationException", () =>
         {
             let innerExp = new ApplicationException("401");
             let exp = new ApplicationException("404", innerExp);
+            
             assert.strictEqual(exp.innerException, innerExp);
         });
     });
@@ -68,7 +108,22 @@ suite("ApplicationException", () =>
         test("should have value", () =>
         {
             let exp = new ApplicationException("404");
+            
             assert.ok(exp.stackTrace);
+        });
+        
+        test("should not be an empty string", () =>
+        {
+            let exp = new ApplicationException("404");
+
+            assert.ok(exp.stackTrace !== "");
+        });
+        
+        test("should not be a space character", () =>
+        {
+            let exp = new ApplicationException("404");
+            
+            assert.ok(exp.stackTrace !== " ");
         });
     });
 }); 
