@@ -62,6 +62,37 @@ suite("ArgumentNullException", () =>
         });
     });
     
+    suite("argName property", () =>
+    {
+        test("should be the value that was passed in when argName argument is provided", () =>
+        {
+            let exp = new ArgumentNullException("i");
+            
+            assert.strictEqual(exp.argName, "i");
+        });
+        
+        test("should be default value if argName is null", () =>
+        {
+            let exp = new ArgumentNullException(null);
+            
+            assert.strictEqual(exp.argName, "<UNKNOWN>");
+        });
+        
+        test("should be default value if argName is a space character", () =>
+        {
+            let exp = new ArgumentNullException(" ");
+            
+            assert.strictEqual(exp.argName, "<UNKNOWN>");
+        });
+        
+        test("should be default value if argName is an empty string", () =>
+        {
+            let exp = new ArgumentNullException("");
+            
+            assert.strictEqual(exp.argName, "<UNKNOWN>");
+        });
+    });
+    
     suite("innerException property", () =>
     {
         test("should be null when no innerException argument is provided", () =>

@@ -53,35 +53,35 @@ suite("ApplicationException", () =>
         {
             let exp = new ApplicationException("You have an error");
             
-            assert.strictEqual(exp.toString, "ApplicationException: You have an error");
+            assert.strictEqual(exp.toString(), "ApplicationException: You have an error");
         });
         
         test("message should be formated and exceptionType should be default value when message is provided and exceptionType is incorrect", () =>
         {
             let exp = new ApplicationException("You have an error");
             
-            assert.strictEqual(exp.toString, "{0}: You have an error");
+            assert.strictEqual(exp.toString(), "ApplicationException: You have an error");
         });
         
         test("exceptionType should be formated and message should be default value when exceptionType is correct and message is null", () =>
         {
             let exp = new ApplicationException(null);
             
-            assert.strictEqual(exp.toString, "ApplicationException: {1}");
+            assert.strictEqual(exp.toString(), "ApplicationException: <none>");
         });
         
         test("exceptionType should be formated and message should be default value when exceptionType is correct and message is a space character", () =>
         {
             let exp = new ApplicationException(" ");
             
-            assert.strictEqual(exp.toString, "ApplicationException: {1}");
+            assert.strictEqual(exp.toString(), "ApplicationException: <none>");
         });
         
         test("exceptionType should be formated and message should be default value when exceptionType is correct and message is an empty string", () =>
         {
             let exp = new ApplicationException("");
             
-            assert.strictEqual(exp.toString, "ApplicationException: {1}");
+            assert.strictEqual(exp.toString(), "ApplicationException: <none>");
         });
     });
 

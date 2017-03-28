@@ -27,28 +27,28 @@ suite("InvalidArgumentException", () =>
         {
             let exp = new InvalidArgumentException("i");
             
-            assert.strictEqual(exp.message, "Argument 'i' is invalid");
+            assert.strictEqual(exp.message, "Argument 'i' is invalid.");
         });
         
         test("should be formated with default value when argName is null", () =>
         {
             let exp = new InvalidArgumentException(null);
             
-            assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is invalid");
+            assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is invalid.");
         });
 
         test("should be formated with default value when argName is an empty string", () =>
         {
             let exp = new InvalidArgumentException("");
             
-            assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is invalid");
+            assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is invalid.");
         });
 
         test("should be formated with default value when argName is a space character", () =>
         {
             let exp = new InvalidArgumentException(" ");
             
-            assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is invalid");
+            assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is invalid.");
         });
     });
     
@@ -60,6 +60,38 @@ suite("InvalidArgumentException", () =>
             
             assert.strictEqual(exp.reason, "is invalid");
         });
+    });
+    
+    suite("argName property", () =>
+    {
+        test("should be value that was passed in when argName is provided", () =>
+        {
+            let exp = new InvalidArgumentException("i");
+            
+            assert.strictEqual(exp.argName, "i");
+        });
+        
+        test("should be default value if argName is null", () =>
+        {
+            let exp = new InvalidArgumentException(null);
+            
+            assert.strictEqual(exp.argName, "<UNKNOWN>");
+        });
+        
+        test("should be default value if argName is a space character", () =>
+        {
+            let exp = new InvalidArgumentException(" ");
+            
+            assert.strictEqual(exp.argName, "<UNKNOWN>");
+        });
+        
+        test("should be default value if argName is an empty string", () =>
+        {
+            let exp = new InvalidArgumentException("");
+            
+            assert.strictEqual(exp.argName, "<UNKNOWN>");
+        });
+        
     });
     
     suite("innerException property", () =>
