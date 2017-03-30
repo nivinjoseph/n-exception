@@ -30,77 +30,77 @@ suite("ArgumentException", () =>
             assert.strictEqual(exp.message, "Argument 'i' is valid.");
         });
         
-        test("argName should be formated and reason should be the default value when argName was provided and reason is an empty string", () =>
+        test("should be formated with provided value for argName and default value for reason when argName is provided and reason is an empty string", () =>
         {
             let exp = new ArgumentException("i", "");
 
             assert.strictEqual(exp.message, "Argument 'i' is not valid.");
         });
 
-        test("argName should be formated with value when provided and reason should be formated with default value when reason is a space character", () =>
+        test("should be formated with provided value for argName and default value for reason when argName is provided and reason is a space character", () =>
         {
             let exp = new ArgumentException("i", " ");
 
             assert.strictEqual(exp.message, "Argument 'i' is not valid.");
         });
         
-        test("argName should be formated with the value when argName is provided and reason should be formated with the default value when reason is null", () =>
+        test("should be formated with provided value for argName and default value for reason when argName is provided and reason is null", () =>
         {
             let exp = new ArgumentException("i", null);
 
             assert.strictEqual(exp.message, "Argument 'i' is not valid.");
         });
         
-        test("argName should be formated with default value and reason should be formated when argName is an empty string and reason was provided", () =>
+        test("should be formated with default value for argName and provided value for reason when argName is an empty string and reason is provided", () =>
         {
             let exp = new ArgumentException("", "is valid");
 
             assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is valid.");
         });
 
-        test("argName should be formated with default value when argName is a space character and reason should be formated with value when provided", () =>
+        test("should be formated with default value for argName and provided value for reason when argName is a space character and reason is provided", () =>
         {
             let exp = new ArgumentException(" ", "is valid");
 
             assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is valid.");
         });
         
-        test("argName should be formated with default value when argName is a null and reason should be the formated with value when reason is provided", () =>
+        test("should be formated with default value for argName and provided value for reason when argName is null and reason is provided", () =>
         {
             let exp = new ArgumentException(null, "is valid");
 
             assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is valid.");
         });
         
-        test("should be formated with default values if argName and reason are null", () =>
+        test("should be formated with default values when argName and reason are null", () =>
         {
             let exp = new ArgumentException(null, null); 
             
             assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is not valid.");
         });
         
-        test("argName and reason should be formated with default values when argName is null and reason is an empty string", () =>
+        test("should be formated with default values when argName is null and reason is an empty string", () =>
         {
             let exp = new ArgumentException(null, "");
             
             assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is not valid.");
         });
         
-        test("argName and reason should be formated with default values when argName is null and reason is a space character", () =>
+        test("should be formated with default values when argName is null and reason is a space character", () =>
         {
             let exp = new ArgumentException(null, " ");
             
             assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is not valid.");
         });
         
-        test("argName should be formated with the default value when argName is an empty string and reason should be formated with default value when reason is null", () =>
+        test("should be formated with default values when argName is an empty string and reason is null", () =>
         {
             let exp = new ArgumentException("", null);
             
             assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is not valid.");
         });
         
-        test("argName should be formated with the default value when argName is a space character and reason should be formated with default value when reason is null", () =>
+        test("should be formated with default values when argName is a space character and reason is null", () =>
         {
             let exp = new ArgumentException(" ", null); 
             
@@ -145,21 +145,21 @@ suite("ArgumentException", () =>
             assert.strictEqual(exp.argName, "i");
         });
         
-        test("should be default value if argName is null", () =>
+        test("should be default value when argName is null", () =>
         {
             let exp = new ArgumentException(null, "is valid");
             
             assert.strictEqual(exp.argName, "<UNKNOWN>");
         });
         
-        test("should be default value if argName is an empty string", () =>
+        test("should be default value when argName is an empty string", () =>
         {
             let exp = new ArgumentException("", "is valid");
             
             assert.strictEqual(exp.argName, "<UNKNOWN>");
         });
         
-        test("should be default value if argName is a space character", () =>
+        test("should be default value when argName is a space character", () =>
         {
             let exp = new ArgumentException(" ", "is valid");
             
@@ -169,21 +169,21 @@ suite("ArgumentException", () =>
     
     suite("reason property", () =>
     {
-        test("should be the value that was passed in when reason is provided", () =>
+        test("should be value that was passed in when reason is provided", () =>
         {
             let exp = new ArgumentException("i", "is valid");
             
             assert.strictEqual(exp.reason, "is valid");
         });
         
-        test("should be the default value when reason is null", () =>
+        test("should be default value when reason is null", () =>
         {
             let exp = new ArgumentException("i", null);
             
             assert.strictEqual(exp.reason, "is not valid");
         });
         
-        test("should be the default value when reason is a space character", () =>
+        test("should be default value when reason is a space character", () =>
         {
             let exp = new ArgumentException("i", "");
             
@@ -222,21 +222,7 @@ suite("ArgumentException", () =>
         {
             let exp = new ArgumentException("404", "is valid.");
             
-            assert.ok(exp.stackTrace);
-        });
-        
-        test("should not be an empty string", () =>
-        {
-            let exp = new ArgumentException("404", "is valid.");
-            
-            assert.ok(exp.stackTrace !== "");
-        });
-        
-        test("should not be a space character", () =>
-        {
-            let exp = new ArgumentException("404", "is valid.");
-            
-            assert.ok(exp.stackTrace !== " ");
+            assert.ok(exp.stackTrace != null && exp.stackTrace !== undefined && !exp.stackTrace.isEmptyOrWhiteSpace());
         });
     });
 });   

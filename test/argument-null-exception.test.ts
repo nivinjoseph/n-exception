@@ -23,7 +23,7 @@ suite("ArgumentNullException", () =>
     
     suite("message property", () =>
     {
-        test("should be formated when argName is provided", () =>
+        test("should be formated with provided value when argName is provided", () =>
         {
             let exp = new ArgumentNullException("i");
             
@@ -44,7 +44,7 @@ suite("ArgumentNullException", () =>
             assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is NULL.");
         });
 
-        test("should be foramted with default value when argName is a space character", () =>
+        test("should be formated with default value when argName is a space character", () =>
         {
             let exp = new ArgumentNullException(" ");
             
@@ -52,9 +52,9 @@ suite("ArgumentNullException", () =>
         });
     });
     
-    suite("base classes reason property", () =>
+    suite("base class reason property", () =>
     {
-        test("should be 'is NULL' when passing reason parameter to base class", () =>
+        test("should be 'is NULL'", () =>
         {
             let exp = new ArgumentNullException("i");
             
@@ -64,28 +64,28 @@ suite("ArgumentNullException", () =>
     
     suite("argName property", () =>
     {
-        test("should be the value that was passed in when argName argument is provided", () =>
+        test("should be value that is provided when argName argument is provided", () =>
         {
             let exp = new ArgumentNullException("i");
             
             assert.strictEqual(exp.argName, "i");
         });
         
-        test("should be default value if argName is null", () =>
+        test("should be default value when argName is null", () =>
         {
             let exp = new ArgumentNullException(null);
             
             assert.strictEqual(exp.argName, "<UNKNOWN>");
         });
         
-        test("should be default value if argName is a space character", () =>
+        test("should be default value when argName is a space character", () =>
         {
             let exp = new ArgumentNullException(" ");
             
             assert.strictEqual(exp.argName, "<UNKNOWN>");
         });
         
-        test("should be default value if argName is an empty string", () =>
+        test("should be default value when argName is an empty string", () =>
         {
             let exp = new ArgumentNullException("");
             
@@ -102,7 +102,7 @@ suite("ArgumentNullException", () =>
             assert.strictEqual(exp.innerException, null);
         });
         
-        test("should be the same object that was passed in as an innerException argument", () =>
+        test("should be the same object that was provided as the innerException argument", () =>
         {
             let innerExp = new ArgumentNullException("401");
             let exp = new ArgumentNullException("404", innerExp);
@@ -117,21 +117,7 @@ suite("ArgumentNullException", () =>
         {
             let exp = new ArgumentNullException("404");
             
-            assert.ok(exp.stackTrace);
-        });
-        
-        test("should not be an empty string", () =>
-        {
-            let exp = new ArgumentNullException("404");
-            
-            assert.ok(exp.stackTrace !== "");
-        });
-        
-        test("should not be a space character", () =>
-        {
-            let exp = new ArgumentNullException("404");
-            
-            assert.ok(exp.stackTrace !== " ");
+            assert.ok(exp.stackTrace != null && exp.stackTrace !== undefined && !exp.stackTrace.isEmptyOrWhiteSpace());
         });
     });
 });

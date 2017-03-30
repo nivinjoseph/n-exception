@@ -23,7 +23,7 @@ suite("InvalidOperationException", () =>
     
     suite("message property", () =>
     {
-        test("should be formated when operation is provided", () =>
+        test("should be formated with provided value when operation is provided", () =>
         {
             let exp = new InvalidOperationException("i");
             
@@ -54,7 +54,7 @@ suite("InvalidOperationException", () =>
     
     suite("operation property", () =>
     {
-        test("should be the value passed in when operation is provided", () =>
+        test("should be the value provided when operation is provided", () =>
         {
             let exp = new InvalidOperationException("i");
             
@@ -107,21 +107,7 @@ suite("InvalidOperationException", () =>
         {
             let exp = new InvalidOperationException("404");
             
-            assert.ok(exp.stackTrace);
-        });
-        
-        test("should not be an empty string", () =>
-        {
-            let exp = new InvalidOperationException("404");
-            
-            assert.ok(exp.stackTrace !== "");
-        });
-        
-        test("should not be a space character", () =>
-        {
-            let exp = new InvalidOperationException("404");
-            
-            assert.ok(exp.stackTrace !== " ");
+            assert.ok(exp.stackTrace != null && exp.stackTrace !== undefined && !exp.stackTrace.isEmptyOrWhiteSpace());
         });
     });
 });

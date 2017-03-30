@@ -22,19 +22,19 @@ suite("ApplicationException", () =>
 
     suite("message property", () =>
     {
-        test("should be '<none>' when message arg is null", () =>
+        test("should be default value when message arg is null", () =>
         {
             let exp = new ApplicationException(null);
             assert.strictEqual(exp.message, "<none>");
         });
 
-        test("should be '<none>' when message arg is a white space", () =>
+        test("should be default value when message arg is a white space", () =>
         {
             let exp = new ApplicationException(" ");
             assert.strictEqual(exp.message, "<none>");
         });
 
-        test("should be '<none>' when message arg is an empty string", () =>
+        test("should be default value when message arg is an empty string", () =>
         {
             let exp = new ApplicationException("");
             assert.strictEqual(exp.message, "<none>");
@@ -47,37 +47,30 @@ suite("ApplicationException", () =>
         });
     });
     
-    suite("toString property", () =>
+    suite("toString method", () =>
     {
-        test("should be formated when exceptionType is correct and message argument is provided", () =>
+        test("should be formated with provided value when message argument is provided", () =>
         {
             let exp = new ApplicationException("You have an error");
             
             assert.strictEqual(exp.toString(), "ApplicationException: You have an error");
         });
         
-        test("message should be formated and exceptionType should be default value when message is provided and exceptionType is incorrect", () =>
-        {
-            let exp = new ApplicationException("You have an error");
-            
-            assert.strictEqual(exp.toString(), "ApplicationException: You have an error");
-        });
-        
-        test("exceptionType should be formated and message should be default value when exceptionType is correct and message is null", () =>
+        test("should be formated with default value for message when message is null", () =>
         {
             let exp = new ApplicationException(null);
             
             assert.strictEqual(exp.toString(), "ApplicationException: <none>");
         });
         
-        test("exceptionType should be formated and message should be default value when exceptionType is correct and message is a space character", () =>
+        test("should be formated with default value for message when message is a space character", () =>
         {
             let exp = new ApplicationException(" ");
             
             assert.strictEqual(exp.toString(), "ApplicationException: <none>");
         });
         
-        test("exceptionType should be formated and message should be default value when exceptionType is correct and message is an empty string", () =>
+        test("should be formated with default value for message when message is an empty string", () =>
         {
             let exp = new ApplicationException("");
             
@@ -109,21 +102,7 @@ suite("ApplicationException", () =>
         {
             let exp = new ApplicationException("404");
             
-            assert.ok(exp.stackTrace);
-        });
-        
-        test("should not be an empty string", () =>
-        {
-            let exp = new ApplicationException("404");
-
-            assert.ok(exp.stackTrace !== "");
-        });
-        
-        test("should not be a space character", () =>
-        {
-            let exp = new ApplicationException("404");
-            
-            assert.ok(exp.stackTrace !== " ");
+            assert.ok(exp.stackTrace != null && exp.stackTrace !== undefined && !exp.stackTrace.isEmptyOrWhiteSpace());
         });
     });
 }); 

@@ -23,7 +23,7 @@ suite("InvalidArgumentException", () =>
     
     suite("message property", () =>
     {
-        test("should be formated when argName is provided", () =>
+        test("should be formated with value provided when argName is provided", () =>
         {
             let exp = new InvalidArgumentException("i");
             
@@ -54,7 +54,7 @@ suite("InvalidArgumentException", () =>
     
     suite("base classes reason property", () =>
     {
-        test("should be 'is invalid' when passing reason parameter to base class", () =>
+        test("should be 'is invalid'", () =>
         {
             let exp = new InvalidArgumentException("i");
             
@@ -64,28 +64,28 @@ suite("InvalidArgumentException", () =>
     
     suite("argName property", () =>
     {
-        test("should be value that was passed in when argName is provided", () =>
+        test("should be value that is provided when argName is provided", () =>
         {
             let exp = new InvalidArgumentException("i");
             
             assert.strictEqual(exp.argName, "i");
         });
         
-        test("should be default value if argName is null", () =>
+        test("should be default value when argName is null", () =>
         {
             let exp = new InvalidArgumentException(null);
             
             assert.strictEqual(exp.argName, "<UNKNOWN>");
         });
         
-        test("should be default value if argName is a space character", () =>
+        test("should be default value when argName is a space character", () =>
         {
             let exp = new InvalidArgumentException(" ");
             
             assert.strictEqual(exp.argName, "<UNKNOWN>");
         });
         
-        test("should be default value if argName is an empty string", () =>
+        test("should be default value when argName is an empty string", () =>
         {
             let exp = new InvalidArgumentException("");
             
@@ -118,21 +118,7 @@ suite("InvalidArgumentException", () =>
         {
             let exp = new InvalidArgumentException("404");
             
-            assert.ok(exp.stackTrace);
-        });
-        
-        test("should not be an empty string", () =>
-        {
-            let exp = new InvalidArgumentException("404");
-            
-            assert.ok(exp.stackTrace !== "");
-        });
-        
-        test("should not be a space character", () =>
-        {
-            let exp = new InvalidArgumentException("404");
-            
-            assert.ok(exp.stackTrace !== " ");
+            assert.ok(exp.stackTrace != null && exp.stackTrace !== undefined && !exp.stackTrace.isEmptyOrWhiteSpace());
         });
     });
 });
