@@ -1,7 +1,7 @@
-import Exception from "./exception";
+import { Exception } from "./exception";
 import "n-ext";
 
-export default class InvalidOperationException extends Exception
+export class InvalidOperationException extends Exception
 {
     private readonly _operation: string;
     

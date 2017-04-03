@@ -1,7 +1,7 @@
-import Exception from "./exception";
+import { Exception } from "./exception";
 import "n-ext";
 
-export default class ArgumentException extends Exception
+export class ArgumentException extends Exception
 {
     private readonly _argName: string;
     private readonly _reason: string;

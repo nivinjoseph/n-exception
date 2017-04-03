@@ -11,13 +11,13 @@ import
 
 suite("InvalidOperationException", () =>
 {
-    suite("exceptionType property", () =>
+    suite("name property", () =>
     {
-        test("should be the right exceptionType", () =>
+        test("should be the right name", () =>
         {
             let exp = new InvalidOperationException("test exception");
             
-            assert.strictEqual(exp.exceptionType, "InvalidOperationException");
+            assert.strictEqual(exp.name, "InvalidOperationException");
         });
     });
     
@@ -101,13 +101,13 @@ suite("InvalidOperationException", () =>
         });
     });
     
-    suite("stackTrace property", () =>
+    suite("stack property", () =>
     {
         test("should have value", () =>
         {
             let exp = new InvalidOperationException("404");
             
-            assert.ok(exp.stackTrace != null && exp.stackTrace !== undefined && !exp.stackTrace.isEmptyOrWhiteSpace());
+            assert.ok(exp.stack != null && exp.stack !== undefined && !exp.stack.isEmptyOrWhiteSpace());
         });
     });
 });

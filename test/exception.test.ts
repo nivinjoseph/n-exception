@@ -46,20 +46,29 @@ suite.skip("Exception", () =>
         }
     }
     
+    function foo()
+    {
+        throw new ApplicationException("waa");
+    }
+    
     test("StackTracing", () =>
     {
-        try
-        {
-            let foo = new Foo();
-            foo.doFoo();
-        }
-        catch (err)
-        {
-            let exp = err as Exception;
+        //throw new Error("waa");
+        
+        foo();
+        
+        // try
+        // {
+        //     let foo = new Foo();
+        //     foo.doFoo();
+        // }
+        // catch (err)
+        // {
+        //     let exp = err as Exception;
 
-            console.log("toString()", exp.toString());
-            console.log("stackTrace", exp.stackTrace);
-            console.log("toLogString()", exp.toLogString());
-        }
+        //     console.log("toString()", exp.toString());
+        //     console.log("stackTrace", exp.stackTrace);
+        //     console.log("toLogString()", exp.toLogString());
+        // }
     });
 });

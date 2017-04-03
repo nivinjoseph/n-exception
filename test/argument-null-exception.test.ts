@@ -11,13 +11,13 @@ import
 
 suite("ArgumentNullException", () =>
 {
-    suite("exceptionType property", () =>
+    suite("name property", () =>
     {
-        test("should have the right exceptionType", () =>
+        test("should have the right name", () =>
         {
             let exp = new ArgumentNullException("test exception");
             
-            assert.strictEqual(exp.exceptionType, "ArgumentNullException");
+            assert.strictEqual(exp.name, "ArgumentNullException");
         });
     });
     
@@ -111,13 +111,13 @@ suite("ArgumentNullException", () =>
         });
     });
     
-    suite("stackTrace property", () =>
+    suite("stack property", () =>
     {
         test("should have value", () =>
         {
             let exp = new ArgumentNullException("404");
             
-            assert.ok(exp.stackTrace != null && exp.stackTrace !== undefined && !exp.stackTrace.isEmptyOrWhiteSpace());
+            assert.ok(exp.stack != null && exp.stack !== undefined && !exp.stack.isEmptyOrWhiteSpace());
         });
     });
 });

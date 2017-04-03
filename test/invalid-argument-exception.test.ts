@@ -11,13 +11,13 @@ import
 
 suite("InvalidArgumentException", () =>
 {
-    suite("exceptionType property", () =>
+    suite("name property", () =>
     {
-        test("should be the right exceptionType", () =>
+        test("should be the right name", () =>
         {
             let exp = new InvalidArgumentException("test exception");
             
-            assert.strictEqual(exp.exceptionType, "InvalidArgumentException");
+            assert.strictEqual(exp.name, "InvalidArgumentException");
         });  
     });
     
@@ -112,13 +112,13 @@ suite("InvalidArgumentException", () =>
         });
     });
     
-    suite("stackTrace property", () =>
+    suite("stack property", () =>
     {
         test("should have value", () =>
         {
             let exp = new InvalidArgumentException("404");
             
-            assert.ok(exp.stackTrace != null && exp.stackTrace !== undefined && !exp.stackTrace.isEmptyOrWhiteSpace());
+            assert.ok(exp.stack != null && exp.stack !== undefined && !exp.stack.isEmptyOrWhiteSpace());
         });
     });
 });

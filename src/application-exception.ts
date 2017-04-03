@@ -1,4 +1,4 @@
-import Exception from "./exception";
+import { Exception } from "./exception";
 
-export default class ApplicationException extends Exception
+export class ApplicationException extends Exception
 { }

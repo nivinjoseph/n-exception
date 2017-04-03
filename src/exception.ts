@@ -1,41 +1,42 @@
 import "n-ext";
 
-abstract class Exception
+export abstract class Exception
 {
+    private readonly _name: string;
     private readonly _message: string;
+    private readonly _stack: string;
     private readonly _innerException: Exception;
-    private readonly _exceptionType: string;
-    private readonly _stackTrace: string;
     
     
+    public get name(): string { return this._name; }
     public get message(): string { return this._message; }
-    public get exceptionType(): string { return this._exceptionType; }
+    public get stack(): string { return this._stack; }
     public get innerException(): Exception { return this._innerException; }
-    public get stackTrace(): string { return this._stackTrace; }
     
     
     public constructor(message: string);
     public constructor(message: string, innerException: Exception);
     public constructor(message: string, innerException?: Exception)
     {
+        this._name = (<Object>this).getTypeName();
+        
         if (message == null || message.isEmptyOrWhiteSpace())
             message = "<none>";
         
         this._message = message;
+        this._stack = this.generateStackTrace();
         this._innerException = innerException ? innerException : null;
-        this._exceptionType = (<Object>this).getTypeName();
-        this._stackTrace = this.generateStackTrace();
     }
     
     
     public toString(): string
     {
-        return "{0}: {1}".format(this._exceptionType, this._message);
+        return "{0}: {1}".format(this._name, this._message);
     }
     
     public toLogString(): string
     {
-        let log = this.stackTrace;
+        let log = this.stack;
         if (this.innerException != null)
             log = log + "\n" + "Inner Exception --> " + this.innerException.toLogString();
         
@@ -47,7 +48,7 @@ abstract class Exception
     {
         let err = new Error();
         let splitted = err.stack.split(/\r?\n/g);
-        let mark = "at new {0}".format(this.exceptionType);
+        let mark = "at new {0}".format(this.name);
         let index = null;
         for (let i = 0; i < splitted.length; i++)
         {
@@ -62,5 +63,3 @@ abstract class Exception
         return splitted.join("\n");
     }
 }
-
-export default Exception;

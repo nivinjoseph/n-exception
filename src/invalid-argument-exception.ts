@@ -1,7 +1,7 @@
-import ArgumentException from "./argument-exception";
-import Exception from "./exception";
+import { ArgumentException } from "./argument-exception";
+import { Exception } from "./exception";
     
-export default class InvalidArgumentException extends ArgumentException
+export class InvalidArgumentException extends ArgumentException
 {
     public constructor(argName: string);
     public constructor(argName: string, innerException: Exception);
