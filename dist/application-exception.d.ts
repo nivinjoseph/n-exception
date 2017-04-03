@@ -1,5 +1,3 @@
-import Exception from "./exception";
-import "n-ext";
-declare class ApplicationException extends Exception {
+import { Exception } from "./exception";
+export declare class ApplicationException extends Exception {
 }
-export default ApplicationException;

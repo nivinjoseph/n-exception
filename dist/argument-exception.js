@@ -22,9 +22,21 @@ var ArgumentException = (function (_super) {
             reason = "is not valid";
         var message = "Argument '{0}' {1}.".format(argName, reason);
         _this = _super.call(this, message, innerException) || this;
+        _this._argName = argName;
+        _this._reason = reason;
         return _this;
     }
+    Object.defineProperty(ArgumentException.prototype, "argName", {
+        get: function () { return this._argName; },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ArgumentException.prototype, "reason", {
+        get: function () { return this._reason; },
+        enumerable: true,
+        configurable: true
+    });
     return ArgumentException;
-}(exception_1.default));
-exports.default = ArgumentException;
+}(exception_1.Exception));
+exports.ArgumentException = ArgumentException;
 //# sourceMappingURL=argument-exception.js.map

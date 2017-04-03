@@ -1,14 +1,16 @@
 import "n-ext";
-declare abstract class Exception {
+export declare abstract class Exception {
+    private readonly _name;
     private readonly _message;
+    private readonly _stack;
     private readonly _innerException;
-    private readonly _exceptionType;
-    private readonly _error;
+    readonly name: string;
     readonly message: string;
-    readonly exceptionType: string;
+    readonly stack: string;
     readonly innerException: Exception;
-    readonly stackTrace: string;
     constructor(message: string);
     constructor(message: string, innerException: Exception);
+    toString(): string;
+    toLogString(): string;
+    private generateStackTrace();
 }
-export default Exception;

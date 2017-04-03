@@ -20,9 +20,15 @@ var InvalidOperationException = (function (_super) {
             operation = "<UNKNOWN>";
         var message = "Operation '{0}' is invalid.".format(operation);
         _this = _super.call(this, message, innerException) || this;
+        _this._operation = operation;
         return _this;
     }
+    Object.defineProperty(InvalidOperationException.prototype, "operation", {
+        get: function () { return this._operation; },
+        enumerable: true,
+        configurable: true
+    });
     return InvalidOperationException;
-}(exception_1.default));
-exports.default = InvalidOperationException;
+}(exception_1.Exception));
+exports.InvalidOperationException = InvalidOperationException;
 //# sourceMappingURL=invalid-operation-exception.js.map

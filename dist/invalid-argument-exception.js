@@ -10,19 +10,13 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var exception_1 = require("./exception");
-require("n-ext");
+var argument_exception_1 = require("./argument-exception");
 var InvalidArgumentException = (function (_super) {
     __extends(InvalidArgumentException, _super);
     function InvalidArgumentException(argName, innerException) {
-        var _this = this;
-        if (argName == null || argName.isEmptyOrWhiteSpace())
-            argName = "<UNKNOWN>";
-        var message = "Argument '{0}' is invalid".format(argName);
-        _this = _super.call(this, message, innerException) || this;
-        return _this;
+        return _super.call(this, argName, "is invalid", innerException) || this;
     }
     return InvalidArgumentException;
-}(exception_1.default));
-exports.default = InvalidArgumentException;
+}(argument_exception_1.ArgumentException));
+exports.InvalidArgumentException = InvalidArgumentException;
 //# sourceMappingURL=invalid-argument-exception.js.map

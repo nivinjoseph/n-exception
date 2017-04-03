@@ -10,19 +10,13 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var exception_1 = require("./exception");
-require("n-ext");
+var argument_exception_1 = require("./argument-exception");
 var ArgumentNullException = (function (_super) {
     __extends(ArgumentNullException, _super);
     function ArgumentNullException(argName, innerException) {
-        var _this = this;
-        if (argName == null || argName.isEmptyOrWhiteSpace())
-            argName = "<UNKNOWN>";
-        var message = "Argument '{0}' is NULL.".format(argName);
-        _this = _super.call(this, message, innerException) || this;
-        return _this;
+        return _super.call(this, argName, "is NULL", innerException) || this;
     }
     return ArgumentNullException;
-}(exception_1.default));
-exports.default = ArgumentNullException;
+}(argument_exception_1.ArgumentException));
+exports.ArgumentNullException = ArgumentNullException;
 //# sourceMappingURL=argument-null-exception.js.map

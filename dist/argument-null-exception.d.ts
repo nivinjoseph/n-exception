@@ -1,7 +1,6 @@
-import Exception from "./exception";
-import "n-ext";
-declare class ArgumentNullException extends Exception {
+import { ArgumentException } from "./argument-exception";
+import { Exception } from "./exception";
+export declare class ArgumentNullException extends ArgumentException {
     constructor(argName: string);
     constructor(argName: string, innerException: Exception);
 }
-export default ArgumentNullException;
