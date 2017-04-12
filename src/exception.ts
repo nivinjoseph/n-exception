@@ -1,6 +1,6 @@
 import "n-ext";
 
-export abstract class Exception
+export class Exception
 {
     private readonly _name: string;
     private readonly _message: string;
@@ -20,14 +20,27 @@ export abstract class Exception
     {
         this._name = (<Object>this).getTypeName();
         
-        if (message == null || message.isEmptyOrWhiteSpace())
-            message = "<none>";
-        
-        this._message = message;
-        this._stack = this.generateStackTrace();
-        this._innerException = innerException ? innerException : null;
+        if ((<any>message) instanceof Error)
+        {
+            let err = (<any>message) as Error;
+            this._message = err.message;
+            this._stack = err.stack;
+        }
+        else
+        {
+            if (message == null || message.isEmptyOrWhiteSpace())
+                message = "<none>";
+
+            this._message = message;
+            this._stack = this.generateStackTrace();
+            this._innerException = innerException ? innerException : null;
+        }
     }
     
+    public static fromError(error: Error): Exception
+    {
+        return new Exception(error as any);
+    }
     
     public toString(): string
     {

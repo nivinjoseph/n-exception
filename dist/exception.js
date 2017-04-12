@@ -4,11 +4,18 @@ require("n-ext");
 var Exception = (function () {
     function Exception(message, innerException) {
         this._name = this.getTypeName();
-        if (message == null || message.isEmptyOrWhiteSpace())
-            message = "<none>";
-        this._message = message;
-        this._stack = this.generateStackTrace();
-        this._innerException = innerException ? innerException : null;
+        if (message instanceof Error) {
+            var err = message;
+            this._message = err.message;
+            this._stack = err.stack;
+        }
+        else {
+            if (message == null || message.isEmptyOrWhiteSpace())
+                message = "<none>";
+            this._message = message;
+            this._stack = this.generateStackTrace();
+            this._innerException = innerException ? innerException : null;
+        }
     }
     Object.defineProperty(Exception.prototype, "name", {
         get: function () { return this._name; },
@@ -30,6 +37,9 @@ var Exception = (function () {
         enumerable: true,
         configurable: true
     });
+    Exception.fromError = function (error) {
+        return new Exception(error);
+    };
     Exception.prototype.toString = function () {
         return "{0}: {1}".format(this._name, this._message);
     };
