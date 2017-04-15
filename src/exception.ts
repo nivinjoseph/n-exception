@@ -48,22 +48,28 @@ export class Exception extends Error
     //     return new Exception(error as any);
     // }
     
-    public toString(): string
-    {
-        return "{0}: {1}".format(this._name, this.message);
-    }
-    
-    public toLogString(): string
-    {
-        let log = this.stack;
-        if (this.innerException != null)
-            log = log + "\n" + "Inner Exception --> " +
-                (this.innerException instanceof Exception
-                    ? (<Exception>this.innerException).toLogString()
-                    : this.innerException.stack);
+    // public toString(): string
+    // {
+    //     // return "{0}: {1}".format(this._name, this.message);
         
-        return log;
-    }
+    //     let log = this.stack;
+    //     if (this.innerException != null)
+    //         log = log + "\n" + "Inner Exception --> " + this.innerException.toString();
+
+    //     return log;
+    // }
+    
+    // public toLogString(): string
+    // {
+    //     let log = this.stack;
+    //     if (this.innerException != null)
+    //         log = log + "\n" + "Inner Exception --> " +
+    //             (this.innerException instanceof Exception
+    //                 ? (<Exception>this.innerException).toLogString()
+    //                 : this.innerException.stack);
+        
+    //     return log;
+    // }
     
     
     // private generateStackTrace(): string

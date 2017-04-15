@@ -5,6 +5,19 @@ import { ArgumentNullException } from "./argument-null-exception";
 import { InvalidArgumentException } from "./invalid-argument-exception";
 import { InvalidOperationException } from "./invalid-operation-exception";
 
+Error.prototype.toString = function ()
+{
+    let obj = Object(this);
+    if (obj !== this)
+        throw new TypeError();
+
+    let log = this.stack;
+    if (this.innerException)
+        log = log + "\n" + "Inner Exception --> " + this.innerException.toString();
+
+    return log;
+};
+
 export
 {
     Exception,

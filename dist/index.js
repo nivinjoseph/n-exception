@@ -12,4 +12,13 @@ const invalid_argument_exception_1 = require("./invalid-argument-exception");
 exports.InvalidArgumentException = invalid_argument_exception_1.InvalidArgumentException;
 const invalid_operation_exception_1 = require("./invalid-operation-exception");
 exports.InvalidOperationException = invalid_operation_exception_1.InvalidOperationException;
+Error.prototype.toString = function () {
+    let obj = Object(this);
+    if (obj !== this)
+        throw new TypeError();
+    let log = this.stack;
+    if (this.innerException)
+        log = log + "\n" + "Inner Exception --> " + this.innerException.toString();
+    return log;
+};
 //# sourceMappingURL=index.js.map

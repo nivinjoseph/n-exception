@@ -53,9 +53,9 @@ suite.skip("Exception", () =>
     
     test("StackTracing", () =>
     {
-        //throw new Error("waa");
+        // throw new Error("waa");
         
-        //foo();
+        // foo();
         
         try
         {
@@ -66,9 +66,8 @@ suite.skip("Exception", () =>
         {
             let exp = err as Exception;
 
-            console.log("toString()", exp.toString());
             console.log("stackTrace", exp.stack);
-            console.log("toLogString()", exp.toLogString());
+            console.log("toString()", exp.toString());
         }
     });
 });

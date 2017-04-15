@@ -3,7 +3,7 @@
         "module": "commonjs",
         "target": "es2015",
         "noImplicitAny": true,
-        "noImplicitThis": true,
+        "noImplicitThis": false,
         "noImplicitReturns": true,
         "noUnusedLocals": false,
         "noUnusedParameters": false,

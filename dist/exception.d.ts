@@ -6,6 +6,4 @@ export declare class Exception extends Error {
     readonly innerException: Error;
     constructor(message: string);
     constructor(message: string, innerException: Error);
-    toString(): string;
-    toLogString(): string;
 }
