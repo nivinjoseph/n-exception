@@ -1,70 +1,48 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("n-ext");
-var Exception = (function () {
-    function Exception(message, innerException) {
+class Exception extends Error {
+    get name() { return this._name; }
+    // public get message(): string { return this._message; }
+    // public get stack(): string { return this._stack; }
+    get innerException() { return this._innerException; }
+    constructor(message, innerException) {
+        if (message == null || message.isEmptyOrWhiteSpace())
+            message = "<none>";
+        super(message);
         this._name = this.getTypeName();
-        if (message instanceof Error) {
-            var err = message;
-            this._message = err.message;
-            this._stack = err.stack;
-        }
-        else {
-            if (message == null || message.isEmptyOrWhiteSpace())
-                message = "<none>";
-            this._message = message;
-            this._stack = this.generateStackTrace();
-            this._innerException = innerException ? innerException : null;
-        }
+        this._innerException = innerException ? innerException : null;
+        // if ((<any>message) instanceof Error)
+        // {
+        //     let err = (<any>message) as Error;
+        //     this._message = err.message;
+        //     this._stack = err.stack;
+        // }
+        // else
+        // {
+        //     if (message == null || message.isEmptyOrWhiteSpace())
+        //         message = "<none>";
+        //     this._message = message;
+        //     this._stack = this.generateStackTrace();
+        //     this._innerException = innerException ? innerException : null;
+        // }
     }
-    Object.defineProperty(Exception.prototype, "name", {
-        get: function () { return this._name; },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Exception.prototype, "message", {
-        get: function () { return this._message; },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Exception.prototype, "stack", {
-        get: function () { return this._stack; },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Exception.prototype, "innerException", {
-        get: function () { return this._innerException; },
-        enumerable: true,
-        configurable: true
-    });
-    Exception.fromError = function (error) {
-        return new Exception(error);
-    };
-    Exception.prototype.toString = function () {
-        return "{0}: {1}".format(this._name, this._message);
-    };
-    Exception.prototype.toLogString = function () {
-        var log = this.stack;
+    // public static fromError(error: Error): Exception
+    // {
+    //     return new Exception(error as any);
+    // }
+    toString() {
+        return "{0}: {1}".format(this._name, this.message);
+    }
+    toLogString() {
+        let log = this.stack;
         if (this.innerException != null)
-            log = log + "\n" + "Inner Exception --> " + this.innerException.toLogString();
+            log = log + "\n" + "Inner Exception --> " +
+                (this.innerException instanceof Exception
+                    ? this.innerException.toLogString()
+                    : this.innerException.stack);
         return log;
-    };
-    Exception.prototype.generateStackTrace = function () {
-        var err = new Error();
-        var splitted = err.stack.split(/\r?\n/g);
-        var mark = "at new {0}".format(this.name);
-        var index = null;
-        for (var i = 0; i < splitted.length; i++) {
-            if (splitted[i].trim().startsWith(mark)) {
-                index = i + 1;
-                break;
-            }
-        }
-        splitted = index != null ? splitted.skip(index) : splitted.skip(1);
-        splitted = [this.toString()].concat(splitted);
-        return splitted.join("\n");
-    };
-    return Exception;
-}());
+    }
+}
 exports.Exception = Exception;
 //# sourceMappingURL=exception.js.map

@@ -40,7 +40,7 @@ suite.skip("Exception", () =>
         public constructor()
         {
             console.log("creating exception");
-            let exp = new MyCustomException("this is a test");
+            let exp = new Error("this is a test");
             console.log("throwing exception");
             throw exp;
         }
@@ -55,20 +55,20 @@ suite.skip("Exception", () =>
     {
         //throw new Error("waa");
         
-        foo();
+        //foo();
         
-        // try
-        // {
-        //     let foo = new Foo();
-        //     foo.doFoo();
-        // }
-        // catch (err)
-        // {
-        //     let exp = err as Exception;
+        try
+        {
+            let foo = new Foo();
+            foo.doFoo();
+        }
+        catch (err)
+        {
+            let exp = err as Exception;
 
-        //     console.log("toString()", exp.toString());
-        //     console.log("stackTrace", exp.stackTrace);
-        //     console.log("toLogString()", exp.toLogString());
-        // }
+            console.log("toString()", exp.toString());
+            console.log("stackTrace", exp.stack);
+            console.log("toLogString()", exp.toLogString());
+        }
     });
 });

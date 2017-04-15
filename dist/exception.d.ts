@@ -1,17 +1,11 @@
 import "n-ext";
-export declare class Exception {
+export declare class Exception extends Error {
     private readonly _name;
-    private readonly _message;
-    private readonly _stack;
     private readonly _innerException;
     readonly name: string;
-    readonly message: string;
-    readonly stack: string;
-    readonly innerException: Exception;
+    readonly innerException: Error;
     constructor(message: string);
-    constructor(message: string, innerException: Exception);
-    static fromError(error: Error): Exception;
+    constructor(message: string, innerException: Error);
     toString(): string;
     toLogString(): string;
-    private generateStackTrace();
 }
