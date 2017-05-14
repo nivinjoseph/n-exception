@@ -4,6 +4,7 @@ import { ArgumentException } from "./argument-exception";
 import { ArgumentNullException } from "./argument-null-exception";
 import { InvalidArgumentException } from "./invalid-argument-exception";
 import { InvalidOperationException } from "./invalid-operation-exception";
+import { NotImplementedException } from "./not-implemented-exception";
 
 Error.prototype.toString = function ()
 {
@@ -25,5 +26,6 @@ export
     ArgumentException,
     ArgumentNullException,
     InvalidArgumentException, 
-    InvalidOperationException
+    InvalidOperationException,
+    NotImplementedException
 }

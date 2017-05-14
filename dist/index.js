@@ -12,6 +12,8 @@ const invalid_argument_exception_1 = require("./invalid-argument-exception");
 exports.InvalidArgumentException = invalid_argument_exception_1.InvalidArgumentException;
 const invalid_operation_exception_1 = require("./invalid-operation-exception");
 exports.InvalidOperationException = invalid_operation_exception_1.InvalidOperationException;
+const not_implemented_exception_1 = require("./not-implemented-exception");
+exports.NotImplementedException = not_implemented_exception_1.NotImplementedException;
 Error.prototype.toString = function () {
     let obj = Object(this);
     if (obj !== this)
