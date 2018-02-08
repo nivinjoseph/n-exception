@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const exception_1 = require("./exception");
-require("n-ext");
+require("@nivinjoseph/n-ext");
 class InvalidOperationException extends exception_1.Exception {
     get operation() { return this._operation; }
     constructor(operation, innerException) {

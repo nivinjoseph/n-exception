@@ -1,5 +1,5 @@
 import { Exception } from "./exception";
-import "n-ext";
+import "@nivinjoseph/n-ext";
 export declare class ArgumentException extends Exception {
     private readonly _argName;
     private readonly _reason;

@@ -1,5 +1,5 @@
 import { Exception } from "./exception";
-import "n-ext";
+import "@nivinjoseph/n-ext";
 
 export class ArgumentException extends Exception
 {

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-require("n-ext");
+require("@nivinjoseph/n-ext");
 class Exception extends Error {
     get name() { return this._name; }
     // public get message(): string { return this._message; }

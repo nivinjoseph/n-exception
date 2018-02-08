@@ -44,6 +44,6 @@
     "watch": "^1.0.2"
   },
   "dependencies": {
-    "n-ext": "git+https://github.com/nivinjoseph/n-ext.git"
+    "@nivinjoseph/n-ext": "^1.0.23"
   }
 }

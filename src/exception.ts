@@ -1,4 +1,4 @@
-import "n-ext";
+import "@nivinjoseph/n-ext";
 
 export class Exception extends Error
 {
