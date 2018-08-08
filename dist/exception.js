@@ -10,6 +10,7 @@ class Exception extends Error {
         if (message == null || message.isEmptyOrWhiteSpace())
             message = "<none>";
         super(message);
+        this.message = message;
         this._name = this.getTypeName();
         this._innerException = innerException ? innerException : null;
         // if ((<any>message) instanceof Error)
