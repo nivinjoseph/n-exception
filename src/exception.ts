@@ -22,6 +22,7 @@ export class Exception extends Error
             message = "<none>";
 
         super(message);
+        this.message = message;
         
         this._name = (<Object>this).getTypeName();
         this._innerException = innerException ? innerException : null;
