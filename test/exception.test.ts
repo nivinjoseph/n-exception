@@ -3,6 +3,7 @@ import { Exception, ApplicationException } from "../src/index";
 // Not a proper test
 suite.skip("Exception", () =>
 {
+    // @ts-ignore
     class MyCustomException extends ApplicationException
     { }
 
@@ -11,6 +12,7 @@ suite.skip("Exception", () =>
         public doFoo(): void
         {
             console.log("fooing");
+            // @ts-ignore
             let baz = (new Bar()).createBaz();
         }
     }
@@ -45,7 +47,7 @@ suite.skip("Exception", () =>
             throw exp;
         }
     }
-    
+    // @ts-ignore
     function foo()
     {
         throw new ApplicationException("waa");

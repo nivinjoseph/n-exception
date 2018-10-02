@@ -2,11 +2,11 @@ import * as assert from "assert";
 import "@nivinjoseph/n-ext";
 import  
 {
-    ApplicationException,
+    // ApplicationException,
     ArgumentException,
-    ArgumentNullException,
-    InvalidArgumentException,
-    InvalidOperationException
+    // ArgumentNullException,
+    // InvalidArgumentException,
+    // InvalidOperationException
 } from "../src/index";
 
 suite("ArgumentException", () =>

@@ -2,10 +2,10 @@ import * as assert from "assert";
 import "@nivinjoseph/n-ext";
 import  
 {
-    ApplicationException,
-    ArgumentException,
-    ArgumentNullException,
-    InvalidArgumentException,
+    // ApplicationException,
+    // ArgumentException,
+    // ArgumentNullException,
+    // InvalidArgumentException,
     InvalidOperationException
 } from "../src/index";
 

@@ -25,7 +25,7 @@ export
     ApplicationException,
     ArgumentException,
     ArgumentNullException,
-    InvalidArgumentException, 
+    InvalidArgumentException,
     InvalidOperationException,
     NotImplementedException
-}
+};
