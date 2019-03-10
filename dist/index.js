@@ -14,6 +14,8 @@ const invalid_operation_exception_1 = require("./invalid-operation-exception");
 exports.InvalidOperationException = invalid_operation_exception_1.InvalidOperationException;
 const not_implemented_exception_1 = require("./not-implemented-exception");
 exports.NotImplementedException = not_implemented_exception_1.NotImplementedException;
+const object_disposed_exception_1 = require("./object-disposed-exception");
+exports.ObjectDisposedException = object_disposed_exception_1.ObjectDisposedException;
 Error.prototype.toString = function () {
     let obj = Object(this);
     if (obj !== this)

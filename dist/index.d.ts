@@ -5,4 +5,5 @@ import { ArgumentNullException } from "./argument-null-exception";
 import { InvalidArgumentException } from "./invalid-argument-exception";
 import { InvalidOperationException } from "./invalid-operation-exception";
 import { NotImplementedException } from "./not-implemented-exception";
-export { Exception, ApplicationException, ArgumentException, ArgumentNullException, InvalidArgumentException, InvalidOperationException, NotImplementedException };
+import { ObjectDisposedException } from "./object-disposed-exception";
+export { Exception, ApplicationException, ArgumentException, ArgumentNullException, InvalidArgumentException, InvalidOperationException, NotImplementedException, ObjectDisposedException };
