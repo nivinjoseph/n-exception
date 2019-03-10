@@ -1,6 +1,7 @@
 import { ArgumentException } from "./argument-exception";
 import { Exception } from "./exception";
 
+
 export class ArgumentNullException extends ArgumentException
 {
     public constructor(argName: string);

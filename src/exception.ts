@@ -1,5 +1,6 @@
 import "@nivinjoseph/n-ext";
 
+
 export class Exception extends Error
 {
     private readonly _name: string;

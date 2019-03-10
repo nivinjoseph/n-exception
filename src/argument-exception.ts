@@ -1,6 +1,7 @@
 import { Exception } from "./exception";
 import "@nivinjoseph/n-ext";
 
+
 export class ArgumentException extends Exception
 {
     private readonly _argName: string;

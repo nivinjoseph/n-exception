@@ -5,6 +5,8 @@ import { ArgumentNullException } from "./argument-null-exception";
 import { InvalidArgumentException } from "./invalid-argument-exception";
 import { InvalidOperationException } from "./invalid-operation-exception";
 import { NotImplementedException } from "./not-implemented-exception";
+import { ObjectDisposedException } from "./object-disposed-exception";
+
 
 Error.prototype.toString = function ()
 {
@@ -19,6 +21,7 @@ Error.prototype.toString = function ()
     return log;
 };
 
+
 export
 {
     Exception,
@@ -27,5 +30,6 @@ export
     ArgumentNullException,
     InvalidArgumentException,
     InvalidOperationException,
-    NotImplementedException
+    NotImplementedException,
+    ObjectDisposedException
 };

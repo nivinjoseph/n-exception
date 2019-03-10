@@ -1,6 +1,7 @@
 import { Exception } from "./exception";
 import "@nivinjoseph/n-ext";
 
+
 export class InvalidOperationException extends Exception
 {
     private readonly _operation: string;
