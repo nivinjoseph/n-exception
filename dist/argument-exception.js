@@ -3,8 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const exception_1 = require("./exception");
 require("@nivinjoseph/n-ext");
 class ArgumentException extends exception_1.Exception {
-    get argName() { return this._argName; }
-    get reason() { return this._reason; }
     constructor(argName, reason, innerException) {
         if (argName == null || argName.isEmptyOrWhiteSpace())
             argName = "<UNKNOWN>";
@@ -15,6 +13,8 @@ class ArgumentException extends exception_1.Exception {
         this._argName = argName;
         this._reason = reason;
     }
+    get argName() { return this._argName; }
+    get reason() { return this._reason; }
 }
 exports.ArgumentException = ArgumentException;
 //# sourceMappingURL=argument-exception.js.map
