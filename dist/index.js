@@ -1,21 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ObjectDisposedException = exports.NotImplementedException = exports.InvalidOperationException = exports.InvalidArgumentException = exports.ArgumentNullException = exports.ArgumentException = exports.ApplicationException = exports.Exception = void 0;
 const exception_1 = require("./exception");
-exports.Exception = exception_1.Exception;
+Object.defineProperty(exports, "Exception", { enumerable: true, get: function () { return exception_1.Exception; } });
 const application_exception_1 = require("./application-exception");
-exports.ApplicationException = application_exception_1.ApplicationException;
+Object.defineProperty(exports, "ApplicationException", { enumerable: true, get: function () { return application_exception_1.ApplicationException; } });
 const argument_exception_1 = require("./argument-exception");
-exports.ArgumentException = argument_exception_1.ArgumentException;
+Object.defineProperty(exports, "ArgumentException", { enumerable: true, get: function () { return argument_exception_1.ArgumentException; } });
 const argument_null_exception_1 = require("./argument-null-exception");
-exports.ArgumentNullException = argument_null_exception_1.ArgumentNullException;
+Object.defineProperty(exports, "ArgumentNullException", { enumerable: true, get: function () { return argument_null_exception_1.ArgumentNullException; } });
 const invalid_argument_exception_1 = require("./invalid-argument-exception");
-exports.InvalidArgumentException = invalid_argument_exception_1.InvalidArgumentException;
+Object.defineProperty(exports, "InvalidArgumentException", { enumerable: true, get: function () { return invalid_argument_exception_1.InvalidArgumentException; } });
 const invalid_operation_exception_1 = require("./invalid-operation-exception");
-exports.InvalidOperationException = invalid_operation_exception_1.InvalidOperationException;
+Object.defineProperty(exports, "InvalidOperationException", { enumerable: true, get: function () { return invalid_operation_exception_1.InvalidOperationException; } });
 const not_implemented_exception_1 = require("./not-implemented-exception");
-exports.NotImplementedException = not_implemented_exception_1.NotImplementedException;
+Object.defineProperty(exports, "NotImplementedException", { enumerable: true, get: function () { return not_implemented_exception_1.NotImplementedException; } });
 const object_disposed_exception_1 = require("./object-disposed-exception");
-exports.ObjectDisposedException = object_disposed_exception_1.ObjectDisposedException;
+Object.defineProperty(exports, "ObjectDisposedException", { enumerable: true, get: function () { return object_disposed_exception_1.ObjectDisposedException; } });
 Error.prototype.toString = function () {
     let obj = Object(this);
     if (obj !== this)

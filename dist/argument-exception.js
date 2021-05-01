@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ArgumentException = void 0;
 const exception_1 = require("./exception");
 require("@nivinjoseph/n-ext");
 class ArgumentException extends exception_1.Exception {
