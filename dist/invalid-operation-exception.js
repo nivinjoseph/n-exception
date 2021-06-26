@@ -4,14 +4,14 @@ exports.InvalidOperationException = void 0;
 const exception_1 = require("./exception");
 require("@nivinjoseph/n-ext");
 class InvalidOperationException extends exception_1.Exception {
-    constructor(operation, innerException) {
-        if (operation == null || operation.isEmptyOrWhiteSpace())
-            operation = "<UNKNOWN>";
-        const message = "Operation '{0}' is invalid.".format(operation);
+    constructor(reason, innerException) {
+        if (reason == null || reason.isEmptyOrWhiteSpace())
+            reason = "<UNKNOWN>";
+        const message = "Operation is invalid due to reason '{0}'.".format(reason);
         super(message, innerException);
-        this._operation = operation;
+        this._reason = reason;
     }
-    get operation() { return this._operation; }
+    get reason() { return this._reason; }
 }
 exports.InvalidOperationException = InvalidOperationException;
 //# sourceMappingURL=invalid-operation-exception.js.map
