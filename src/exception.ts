@@ -9,7 +9,7 @@ export class Exception extends Error
     private readonly _innerException: Error;
     
     
-    public get name(): string { return this._name; }
+    public override get name(): string { return this._name; }
     // public get message(): string { return this._message; }
     // public get stack(): string { return this._stack; }
     public get innerException(): Error { return this._innerException; }
