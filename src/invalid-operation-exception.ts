@@ -4,23 +4,23 @@ import "@nivinjoseph/n-ext";
 
 export class InvalidOperationException extends Exception
 {
-    private readonly _operation: string;
+    private readonly _reason: string;
     
     
-    public get operation(): string { return this._operation; }
+    public get reason(): string { return this._reason; }
     
     
-    public constructor(operation: string);
-    public constructor(operation: string, innerException: Exception);
-    public constructor(operation: string, innerException?: Exception)
+    public constructor(reason: string);
+    public constructor(reason: string, innerException: Exception);
+    public constructor(reason: string, innerException?: Exception)
     {
-        if (operation == null || operation.isEmptyOrWhiteSpace())
-            operation = "<UNKNOWN>";
+        if (reason == null || reason.isEmptyOrWhiteSpace())
+            reason = "<UNKNOWN>";
 
-        const message = "Operation '{0}' is invalid.".format(operation);
+        const message = "Operation is invalid due to reason '{0}'.".format(reason);
 
         super(message, innerException);
         
-        this._operation = operation;
+        this._reason = reason;
     }
 }

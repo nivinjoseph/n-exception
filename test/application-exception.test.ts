@@ -53,28 +53,28 @@ suite("ApplicationException", () =>
         {
             let exp = new ApplicationException("You have an error");
             
-            assert.strictEqual(exp.toString(), "ApplicationException: You have an error");
+            assert.strictEqual(exp.toString().split("\n")[0], "ApplicationException: You have an error");
         });
         
         test("should be formated with default value for message when message is null", () =>
         {
             let exp = new ApplicationException(null);
             
-            assert.strictEqual(exp.toString(), "ApplicationException: <none>");
+            assert.strictEqual(exp.toString().split("\n")[0], "ApplicationException: <none>");
         });
         
         test("should be formated with default value for message when message is a space character", () =>
         {
             let exp = new ApplicationException(" ");
             
-            assert.strictEqual(exp.toString(), "ApplicationException: <none>");
+            assert.strictEqual(exp.toString().split("\n")[0], "ApplicationException: <none>");
         });
         
         test("should be formated with default value for message when message is an empty string", () =>
         {
             let exp = new ApplicationException("");
             
-            assert.strictEqual(exp.toString(), "ApplicationException: <none>");
+            assert.strictEqual(exp.toString().split("\n")[0], "ApplicationException: <none>");
         });
     });
 

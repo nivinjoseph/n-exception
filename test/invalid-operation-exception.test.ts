@@ -27,28 +27,28 @@ suite("InvalidOperationException", () =>
         {
             let exp = new InvalidOperationException("i");
             
-            assert.strictEqual(exp.message, "Operation 'i' is invalid.");
+            assert.strictEqual(exp.message, "Operation is invalid due to reason 'i'.");
         });
         
         test("should be formated with default value when operation value is null", () =>
         {
             let exp = new InvalidOperationException(null);
             
-            assert.strictEqual(exp.message, "Operation '<UNKNOWN>' is invalid.");
+            assert.strictEqual(exp.message, "Operation is invalid due to reason '<UNKNOWN>'.");
         });
 
         test("should be formated with default value when operation value is an empty string", () =>
         {
             let exp = new InvalidOperationException("");
             
-            assert.strictEqual(exp.message, "Operation '<UNKNOWN>' is invalid.");
+            assert.strictEqual(exp.message, "Operation is invalid due to reason '<UNKNOWN>'.");
         });
 
         test("should be formated with default value when operation value is a space character", () =>
         {
             let exp = new InvalidOperationException(" ");
             
-            assert.strictEqual(exp.message, "Operation '<UNKNOWN>' is invalid.");
+            assert.strictEqual(exp.message, "Operation is invalid due to reason '<UNKNOWN>'.");
         });
     });
     
@@ -58,28 +58,28 @@ suite("InvalidOperationException", () =>
         {
             let exp = new InvalidOperationException("i");
             
-            assert.strictEqual(exp.operation, "i");
+            assert.strictEqual(exp.reason, "i");
         });
         
         test("should be default value when operation is null", () =>
         {
             let exp = new InvalidOperationException(null);
             
-            assert.strictEqual(exp.operation, "<UNKNOWN>");
+            assert.strictEqual(exp.reason, "<UNKNOWN>");
         });
         
         test("should be default value when operation is an empty string", () =>
         {
             let exp = new InvalidOperationException("");
             
-            assert.strictEqual(exp.operation, "<UNKNOWN>");
+            assert.strictEqual(exp.reason, "<UNKNOWN>");
         });
         
         test("should be default value when operation is a space character", () =>
         {
             let exp = new InvalidOperationException(" ");
             
-            assert.strictEqual(exp.operation, "<UNKNOWN>");
+            assert.strictEqual(exp.reason, "<UNKNOWN>");
         });
     });
     
