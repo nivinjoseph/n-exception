@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObjectDisposedException = exports.NotImplementedException = exports.InvalidOperationException = exports.InvalidArgumentException = exports.ArgumentNullException = exports.ArgumentException = exports.ApplicationException = exports.Exception = void 0;
+require("@nivinjoseph/n-ext");
 const exception_1 = require("./exception");
 Object.defineProperty(exports, "Exception", { enumerable: true, get: function () { return exception_1.Exception; } });
 const application_exception_1 = require("./application-exception");

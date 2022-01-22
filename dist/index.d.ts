@@ -1,3 +1,4 @@
+import "@nivinjoseph/n-ext";
 import { Exception } from "./exception";
 import { ApplicationException } from "./application-exception";
 import { ArgumentException } from "./argument-exception";

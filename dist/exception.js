@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Exception = void 0;
-require("@nivinjoseph/n-ext");
 class Exception extends Error {
     constructor(message, innerException) {
         if (message == null || message.isEmptyOrWhiteSpace())
