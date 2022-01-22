@@ -1,6 +1,6 @@
 {
     "name": "@nivinjoseph/n-exception",
-    "version": "1.0.23",
+    "version": "1.0.24",
     "description": "Library of Exception classes",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
