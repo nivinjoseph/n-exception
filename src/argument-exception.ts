@@ -1,5 +1,4 @@
 import { Exception } from "./exception";
-import "@nivinjoseph/n-ext";
 
 
 export class ArgumentException extends Exception
@@ -22,7 +21,7 @@ export class ArgumentException extends Exception
         if (reason == null || reason.isEmptyOrWhiteSpace())
             reason = "is not valid";
         
-        const message = "Argument '{0}' {1}.".format(argName, reason);
+        const message = `Argument '${argName}' ${reason}.`;
 
         super(message, innerException);
         

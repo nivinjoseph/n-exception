@@ -1,5 +1,4 @@
 import { Exception } from "./exception";
-import "@nivinjoseph/n-ext";
 
 
 export class ObjectDisposedException extends Exception

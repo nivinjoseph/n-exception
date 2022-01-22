@@ -1,5 +1,4 @@
 import { Exception } from "./exception";
-import "@nivinjoseph/n-ext";
 
 
 export class InvalidOperationException extends Exception
@@ -17,7 +16,7 @@ export class InvalidOperationException extends Exception
         if (reason == null || reason.isEmptyOrWhiteSpace())
             reason = "<UNKNOWN>";
 
-        const message = "Operation is invalid due to reason '{0}'.".format(reason);
+        const message = `Operation is invalid due to reason '${reason}'.`;
 
         super(message, innerException);
         
