@@ -9,10 +9,9 @@ export class InvalidOperationException extends Exception
     public get reason(): string { return this._reason; }
     
     
-    public constructor(reason: string);
-    public constructor(reason: string, innerException: Exception);
-    public constructor(reason: string, innerException?: Exception)
+    public constructor(reason: string, innerException?: Error)
     {
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (reason == null || reason.isEmptyOrWhiteSpace())
             reason = "<UNKNOWN>";
 

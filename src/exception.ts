@@ -1,21 +1,20 @@
-export class Exception extends Error
+export abstract class Exception extends Error
 {
     private readonly _name: string;
     // private readonly _message: string;
     // private readonly _stack: string;
-    private readonly _innerException: Error;
+    private readonly _innerException: Error | null;
     
     
     public override get name(): string { return this._name; }
     // public get message(): string { return this._message; }
     // public get stack(): string { return this._stack; }
-    public get innerException(): Error { return this._innerException; }
+    public get innerException(): Error | null { return this._innerException; }
     
     
-    public constructor(message: string);
-    public constructor(message: string, innerException: Error);
     public constructor(message: string, innerException?: Error)
     {
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (message == null || message.isEmptyOrWhiteSpace())
             message = "<none>";
 
@@ -23,7 +22,7 @@ export class Exception extends Error
         this.message = message;
         
         this._name = (<Object>this).getTypeName();
-        this._innerException = innerException ? innerException : null;
+        this._innerException = innerException ?? null;
         
         // if ((<any>message) instanceof Error)
         // {

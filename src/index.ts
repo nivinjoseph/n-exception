@@ -9,15 +9,15 @@ import { NotImplementedException } from "./not-implemented-exception";
 import { ObjectDisposedException } from "./object-disposed-exception";
 
 
-Error.prototype.toString = function ()
+Error.prototype.toString = function (): string
 {
-    let obj = Object(this);
+    const obj = Object(this);
     if (obj !== this)
         throw new TypeError();
 
-    let log = this.stack;
-    if (this.innerException)
-        log = log + "\n" + "Inner Exception --> " + this.innerException.toString();
+    let log = this.stack ?? "No stack trace";
+    if ((this as Exception).innerException)
+        log = log + "\n" + "Inner Exception --> " + (<Exception>this).innerException!.toString();
 
     return log;
 };

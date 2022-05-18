@@ -11,13 +11,13 @@ export class ArgumentException extends Exception
     public get reason(): string { return this._reason; }
     
     
-    public constructor(argName: string, reason: string);
-    public constructor(argName: string, reason: string, innerException: Exception);
-    public constructor(argName: string, reason: string, innerException?: Exception)
+    public constructor(argName: string, reason: string, innerException?: Error)
     {
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (argName == null || argName.isEmptyOrWhiteSpace())
             argName = "<UNKNOWN>";
 
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (reason == null || reason.isEmptyOrWhiteSpace())
             reason = "is not valid";
         

@@ -5,7 +5,7 @@ import
     // ApplicationException,
     // ArgumentException,
     // ArgumentNullException,
-    InvalidArgumentException,
+    InvalidArgumentException
     // InvalidOperationException
 } from "../src/index";
 
@@ -15,7 +15,7 @@ suite("InvalidArgumentException", () =>
     {
         test("should be the right name", () =>
         {
-            let exp = new InvalidArgumentException("test exception");
+            const exp = new InvalidArgumentException("test exception");
             
             assert.strictEqual(exp.name, "InvalidArgumentException");
         });  
@@ -25,28 +25,28 @@ suite("InvalidArgumentException", () =>
     {
         test("should be formated with value provided when argName is provided", () =>
         {
-            let exp = new InvalidArgumentException("i");
+            const exp = new InvalidArgumentException("i");
             
             assert.strictEqual(exp.message, "Argument 'i' is invalid.");
         });
         
         test("should be formated with default value when argName is null", () =>
         {
-            let exp = new InvalidArgumentException(null);
+            const exp = new InvalidArgumentException(null as any);
             
             assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is invalid.");
         });
 
         test("should be formated with default value when argName is an empty string", () =>
         {
-            let exp = new InvalidArgumentException("");
+            const exp = new InvalidArgumentException("");
             
             assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is invalid.");
         });
 
         test("should be formated with default value when argName is a space character", () =>
         {
-            let exp = new InvalidArgumentException(" ");
+            const exp = new InvalidArgumentException(" ");
             
             assert.strictEqual(exp.message, "Argument '<UNKNOWN>' is invalid.");
         });
@@ -56,7 +56,7 @@ suite("InvalidArgumentException", () =>
     {
         test("should be 'is invalid'", () =>
         {
-            let exp = new InvalidArgumentException("i");
+            const exp = new InvalidArgumentException("i");
             
             assert.strictEqual(exp.reason, "is invalid");
         });
@@ -66,28 +66,28 @@ suite("InvalidArgumentException", () =>
     {
         test("should be value that is provided when argName is provided", () =>
         {
-            let exp = new InvalidArgumentException("i");
+            const exp = new InvalidArgumentException("i");
             
             assert.strictEqual(exp.argName, "i");
         });
         
         test("should be default value when argName is null", () =>
         {
-            let exp = new InvalidArgumentException(null);
+            const exp = new InvalidArgumentException(null as any);
             
             assert.strictEqual(exp.argName, "<UNKNOWN>");
         });
         
         test("should be default value when argName is a space character", () =>
         {
-            let exp = new InvalidArgumentException(" ");
+            const exp = new InvalidArgumentException(" ");
             
             assert.strictEqual(exp.argName, "<UNKNOWN>");
         });
         
         test("should be default value when argName is an empty string", () =>
         {
-            let exp = new InvalidArgumentException("");
+            const exp = new InvalidArgumentException("");
             
             assert.strictEqual(exp.argName, "<UNKNOWN>");
         });
@@ -98,15 +98,15 @@ suite("InvalidArgumentException", () =>
     {
         test("should be null when no innerException argument is provided", () =>
         {
-            let exp = new InvalidArgumentException("401");
+            const exp = new InvalidArgumentException("401");
             
             assert.strictEqual(exp.innerException, null);
         });
         
         test("should be the same object as the innerException argument that is passed in", () =>
         {
-            let innerExp = new InvalidArgumentException("404");
-            let exp = new InvalidArgumentException("401", innerExp);
+            const innerExp = new InvalidArgumentException("404");
+            const exp = new InvalidArgumentException("401", innerExp);
             
             assert.strictEqual(exp.innerException, innerExp);
         });
@@ -116,9 +116,9 @@ suite("InvalidArgumentException", () =>
     {
         test("should have value", () =>
         {
-            let exp = new InvalidArgumentException("404");
+            const exp = new InvalidArgumentException("404");
             
-            assert.ok(exp.stack != null && exp.stack !== undefined && !exp.stack.isEmptyOrWhiteSpace());
+            assert.ok(exp.stack != null && exp.stack.isNotEmptyOrWhiteSpace());
         });
     });
 });

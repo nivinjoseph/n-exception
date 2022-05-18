@@ -3,7 +3,7 @@ import { Exception, ApplicationException } from "../src/index";
 // Not a proper test
 suite.skip("Exception", () =>
 {
-    // @ts-ignore
+    // @ts-expect-error: not used atm
     class MyCustomException extends ApplicationException
     { }
 
@@ -12,8 +12,8 @@ suite.skip("Exception", () =>
         public doFoo(): void
         {
             console.log("fooing");
-            // @ts-ignore
-            let baz = (new Bar()).createBaz();
+            // @ts-expect-error: not used atm
+            const baz = new Bar().createBaz();
         }
     }
 
@@ -23,15 +23,15 @@ suite.skip("Exception", () =>
         {
             try
             {
-                return this.createBazInternal();
+                return this._createBazInternal();
             }
             catch (err)
             {
-                throw new ApplicationException("Caught some exception", err);
+                throw new ApplicationException("Caught some exception", err as Error);
             }
         }
 
-        private createBazInternal(): Baz
+        private _createBazInternal(): Baz
         {
             return new Baz();
         }
@@ -42,13 +42,13 @@ suite.skip("Exception", () =>
         public constructor()
         {
             console.log("creating exception");
-            let exp = new Error("this is a test");
+            const exp = new Error("this is a test");
             console.log("throwing exception");
             throw exp;
         }
     }
-    // @ts-ignore
-    function foo()
+    // @ts-expect-error: not used atm
+    function foo(): never
     {
         throw new ApplicationException("waa");
     }
@@ -61,12 +61,12 @@ suite.skip("Exception", () =>
         
         try
         {
-            let foo = new Foo();
+            const foo = new Foo();
             foo.doFoo();
         }
         catch (err)
         {
-            let exp = err as Exception;
+            const exp = err as Exception;
 
             console.log("stackTrace", exp.stack);
             console.log("toString()", exp.toString());
