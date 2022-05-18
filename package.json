@@ -40,6 +40,7 @@
         "typescript": "^4.6.4"
     },
     "dependencies": {
-        "@nivinjoseph/n-ext": "^1.1.35"
+        "@nivinjoseph/n-ext": "^1.1.35",
+        "tslib": "^2.4.0"
     }
 }
