@@ -1,7 +1,8 @@
-import { Exception, ApplicationException } from "../src/index";
+import { Exception, ApplicationException } from "../src/index.js";
+import { describe, test } from "node:test";
 
 // Not a proper test
-suite.skip("Exception", () =>
+await describe.skip("Exception", async () =>
 {
     // @ts-expect-error: not used atm
     class MyCustomException extends ApplicationException
@@ -52,13 +53,13 @@ suite.skip("Exception", () =>
     {
         throw new ApplicationException("waa");
     }
-    
-    test("StackTracing", () =>
+
+    await test("StackTracing", () =>
     {
         // throw new Error("waa");
-        
+
         // foo();
-        
+
         try
         {
             const foo = new Foo();

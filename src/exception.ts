@@ -3,27 +3,26 @@ export abstract class Exception extends Error
     private readonly _name: string;
     // private readonly _message: string;
     // private readonly _stack: string;
-    private readonly _innerException: Error | null;
-    
-    
+
     public override get name(): string { return this._name; }
     // public get message(): string { return this._message; }
     // public get stack(): string { return this._stack; }
-    public get innerException(): Error | null { return this._innerException; }
-    
-    
+    public get innerException(): Error | null { return this.cause as Error | null; }
+
+
     public constructor(message: string, innerException?: Error)
     {
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (message == null || message.isEmptyOrWhiteSpace())
             message = "<none>";
 
-        super(message);
+        super(message, {
+            cause: innerException ?? null
+        });
         this.message = message;
-        
+
         this._name = (<Object>this).getTypeName();
-        this._innerException = innerException ?? null;
-        
+
         // if ((<any>message) instanceof Error)
         // {
         //     let err = (<any>message) as Error;
@@ -40,23 +39,23 @@ export abstract class Exception extends Error
         //     this._innerException = innerException ? innerException : null;
         // }
     }
-    
+
     // public static fromError(error: Error): Exception
     // {
     //     return new Exception(error as any);
     // }
-    
+
     // public toString(): string
     // {
     //     // return "{0}: {1}".format(this._name, this.message);
-        
+
     //     let log = this.stack;
     //     if (this.innerException != null)
     //         log = log + "\n" + "Inner Exception --> " + this.innerException.toString();
 
     //     return log;
     // }
-    
+
     // public toLogString(): string
     // {
     //     let log = this.stack;
@@ -65,11 +64,11 @@ export abstract class Exception extends Error
     //             (this.innerException instanceof Exception
     //                 ? (<Exception>this.innerException).toLogString()
     //                 : this.innerException.stack);
-        
+
     //     return log;
     // }
-    
-    
+
+
     // private generateStackTrace(): string
     // {
     //     let err = new Error();
