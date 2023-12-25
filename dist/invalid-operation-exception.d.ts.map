@@ -1,0 +1,1 @@
+{"version":3,"file":"invalid-operation-exception.d.ts","sourceRoot":"","sources":["../src/invalid-operation-exception.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,MAAM,gBAAgB,CAAC;AAG3C,qBAAa,yBAA0B,SAAQ,SAAS;IAEpD,OAAO,CAAC,QAAQ,CAAC,OAAO,CAAS;IAGjC,IAAW,MAAM,IAAI,MAAM,CAAyB;gBAGjC,MAAM,EAAE,MAAM,EAAE,cAAc,CAAC,EAAE,KAAK;CAY5D"}

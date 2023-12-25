@@ -1,8 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ArgumentException = void 0;
-const exception_1 = require("./exception");
-class ArgumentException extends exception_1.Exception {
+import { Exception } from "./exception.js";
+export class ArgumentException extends Exception {
+    get argName() { return this._argName; }
+    get reason() { return this._reason; }
     constructor(argName, reason, innerException) {
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (argName == null || argName.isEmptyOrWhiteSpace())
@@ -15,8 +14,5 @@ class ArgumentException extends exception_1.Exception {
         this._argName = argName;
         this._reason = reason;
     }
-    get argName() { return this._argName; }
-    get reason() { return this._reason; }
 }
-exports.ArgumentException = ArgumentException;
 //# sourceMappingURL=argument-exception.js.map

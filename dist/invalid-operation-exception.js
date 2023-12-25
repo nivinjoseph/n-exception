@@ -1,8 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.InvalidOperationException = void 0;
-const exception_1 = require("./exception");
-class InvalidOperationException extends exception_1.Exception {
+import { Exception } from "./exception.js";
+export class InvalidOperationException extends Exception {
+    get reason() { return this._reason; }
     constructor(reason, innerException) {
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (reason == null || reason.isEmptyOrWhiteSpace())
@@ -11,7 +9,5 @@ class InvalidOperationException extends exception_1.Exception {
         super(message, innerException);
         this._reason = reason;
     }
-    get reason() { return this._reason; }
 }
-exports.InvalidOperationException = InvalidOperationException;
 //# sourceMappingURL=invalid-operation-exception.js.map

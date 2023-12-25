@@ -1,15 +1,19 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Exception = void 0;
-class Exception extends Error {
+export class Exception extends Error {
+    // private readonly _message: string;
+    // private readonly _stack: string;
+    get name() { return this._name; }
+    // public get message(): string { return this._message; }
+    // public get stack(): string { return this._stack; }
+    get innerException() { return this.cause; }
     constructor(message, innerException) {
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
         if (message == null || message.isEmptyOrWhiteSpace())
             message = "<none>";
-        super(message);
+        super(message, {
+            cause: innerException !== null && innerException !== void 0 ? innerException : null
+        });
         this.message = message;
         this._name = this.getTypeName();
-        this._innerException = innerException !== null && innerException !== void 0 ? innerException : null;
         // if ((<any>message) instanceof Error)
         // {
         //     let err = (<any>message) as Error;
@@ -25,10 +29,5 @@ class Exception extends Error {
         //     this._innerException = innerException ? innerException : null;
         // }
     }
-    get name() { return this._name; }
-    // public get message(): string { return this._message; }
-    // public get stack(): string { return this._stack; }
-    get innerException() { return this._innerException; }
 }
-exports.Exception = Exception;
 //# sourceMappingURL=exception.js.map
