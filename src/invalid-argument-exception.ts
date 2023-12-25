@@ -1,4 +1,4 @@
-import { ArgumentException } from "./argument-exception";
+import { ArgumentException } from "./argument-exception.js";
     
 
 export class InvalidArgumentException extends ArgumentException

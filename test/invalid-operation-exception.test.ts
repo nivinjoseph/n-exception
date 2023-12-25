@@ -1,112 +1,112 @@
-import * as assert from "assert";
 import "@nivinjoseph/n-ext";
-import  
-{
-    // ApplicationException,
-    // ArgumentException,
-    // ArgumentNullException,
-    // InvalidArgumentException,
-    InvalidOperationException
-} from "../src/index";
-
-suite("InvalidOperationException", () =>
-{
-    suite("name property", () =>
+import assert from "node:assert";
+import { describe, test } from "node:test";
+import
     {
-        test("should be the right name", () =>
+        // ApplicationException,
+        // ArgumentException,
+        // ArgumentNullException,
+        // InvalidArgumentException,
+        InvalidOperationException
+    } from "../src/index.js";
+
+await describe("InvalidOperationException", async () =>
+{
+    await describe("name property", async () =>
+    {
+        await test("should be the right name", () =>
         {
             const exp = new InvalidOperationException("test exception");
-            
+
             assert.strictEqual(exp.name, "InvalidOperationException");
         });
     });
-    
-    suite("message property", () =>
+
+    await describe("message property", async () =>
     {
-        test("should be formated with provided value when operation is provided", () =>
+        await test("should be formated with provided value when operation is provided", () =>
         {
             const exp = new InvalidOperationException("i");
-            
+
             assert.strictEqual(exp.message, "Operation is invalid due to reason 'i'.");
         });
-        
-        test("should be formated with default value when operation value is null", () =>
+
+        await test("should be formated with default value when operation value is null", () =>
         {
             const exp = new InvalidOperationException(null as any);
-            
+
             assert.strictEqual(exp.message, "Operation is invalid due to reason '<UNKNOWN>'.");
         });
 
-        test("should be formated with default value when operation value is an empty string", () =>
+        await test("should be formated with default value when operation value is an empty string", () =>
         {
             const exp = new InvalidOperationException("");
-            
+
             assert.strictEqual(exp.message, "Operation is invalid due to reason '<UNKNOWN>'.");
         });
 
-        test("should be formated with default value when operation value is a space character", () =>
+        await test("should be formated with default value when operation value is a space character", () =>
         {
             const exp = new InvalidOperationException(" ");
-            
+
             assert.strictEqual(exp.message, "Operation is invalid due to reason '<UNKNOWN>'.");
         });
     });
-    
-    suite("operation property", () =>
+
+    await describe("operation property", async () =>
     {
-        test("should be the value provided when operation is provided", () =>
+        await test("should be the value provided when operation is provided", () =>
         {
             const exp = new InvalidOperationException("i");
-            
+
             assert.strictEqual(exp.reason, "i");
         });
-        
-        test("should be default value when operation is null", () =>
+
+        await test("should be default value when operation is null", () =>
         {
             const exp = new InvalidOperationException(null as any);
-            
+
             assert.strictEqual(exp.reason, "<UNKNOWN>");
         });
-        
-        test("should be default value when operation is an empty string", () =>
+
+        await test("should be default value when operation is an empty string", () =>
         {
             const exp = new InvalidOperationException("");
-            
+
             assert.strictEqual(exp.reason, "<UNKNOWN>");
         });
-        
-        test("should be default value when operation is a space character", () =>
+
+        await test("should be default value when operation is a space character", () =>
         {
             const exp = new InvalidOperationException(" ");
-            
+
             assert.strictEqual(exp.reason, "<UNKNOWN>");
         });
     });
-    
-    suite("innerException property", () =>
+
+    await describe("innerException property", async () =>
     {
-        test("should be null when no innerException argument is provided", () =>
+        await test("should be null when no innerException argument is provided", () =>
         {
             const exp = new InvalidOperationException("i");
-            
+
             assert.strictEqual(exp.innerException, null);
         });
-        
-        test("should be same object as the innerException argument that is passed in", () =>
+
+        await test("should be same object as the innerException argument that is passed in", () =>
         {
-            const innerExp = new InvalidOperationException("i");
-            const exp = new InvalidOperationException("i", innerExp);
-            
+            const innerExp = new InvalidOperationException("inner");
+            const exp = new InvalidOperationException("outer", innerExp);
             assert.strictEqual(exp.innerException, innerExp);
         });
     });
-    
-    suite("stack property", () =>
+
+    await describe("stack property", async () =>
     {
-        test("should have value", () =>
+        await test("should have value", () =>
         {
             const exp = new InvalidOperationException("404");
-            
+
             assert.ok(exp.stack != null && exp.stack.isNotEmptyOrWhiteSpace());
         });
     });

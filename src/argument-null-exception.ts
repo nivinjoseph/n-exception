@@ -1,4 +1,4 @@
-import { ArgumentException } from "./argument-exception";
+import { ArgumentException } from "./argument-exception.js";
 
 
 export class ArgumentNullException extends ArgumentException
