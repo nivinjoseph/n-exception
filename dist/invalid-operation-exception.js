@@ -1,5 +1,6 @@
 import { Exception } from "./exception.js";
 export class InvalidOperationException extends Exception {
+    _reason;
     get reason() { return this._reason; }
     constructor(reason, innerException) {
         // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition

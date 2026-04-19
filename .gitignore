@@ -43,7 +43,7 @@ src/**/*.map
 test/**/*.js
 test/**/*.map
 
-**/**/.DS_store
+**/.DS_Store
 
 
 .pnp.*

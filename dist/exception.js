@@ -1,4 +1,5 @@
 export class Exception extends Error {
+    _name;
     // private readonly _message: string;
     // private readonly _stack: string;
     get name() { return this._name; }
@@ -10,7 +11,7 @@ export class Exception extends Error {
         if (message == null || message.isEmptyOrWhiteSpace())
             message = "<none>";
         super(message, {
-            cause: innerException !== null && innerException !== void 0 ? innerException : null
+            cause: innerException ?? null
         });
         this.message = message;
         this._name = this.getTypeName();

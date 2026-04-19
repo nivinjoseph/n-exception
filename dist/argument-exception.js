@@ -1,5 +1,7 @@
 import { Exception } from "./exception.js";
 export class ArgumentException extends Exception {
+    _argName;
+    _reason;
     get argName() { return this._argName; }
     get reason() { return this._reason; }
     constructor(argName, reason, innerException) {

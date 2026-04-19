@@ -38,14 +38,14 @@ yarn add @nivinjoseph/n-exception
 ### Basic Usage
 
 ```typescript
-import { Exception, ArgumentNullException } from "@nivinjoseph/n-exception";
+import { ApplicationException, ArgumentNullException } from "@nivinjoseph/n-exception";
 
 // Creating a basic exception
-const ex = new Exception("Something went wrong");
+const ex = new ApplicationException("Something went wrong");
 
 // Creating an exception with an inner exception
 const innerEx = new Error("Original error");
-const exWithInner = new Exception("Operation failed", innerEx);
+const exWithInner = new ApplicationException("Operation failed", innerEx);
 
 // Using specialized exceptions
 function processUser(user: any) {
