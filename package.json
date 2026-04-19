@@ -1,6 +1,6 @@
 {
     "name": "@nivinjoseph/n-exception",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "Library of Exception classes",
     "packageManager": "yarn@4.14.1",
     "type": "module",
